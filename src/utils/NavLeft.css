@@ -1,0 +1,27 @@
+.nav-left-conatiner{
+    background: black;
+    width: 100px;
+    height: 732px;
+    /* margin-left: 20px; */
+    margin-top: -50px; 
+
+    grid-column: 1;
+  grid-row: 2 / 5;
+}
+.nav-left{
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    padding: 25px;
+    margin-top: -20px;
+}
+.logos_nav-left{
+    width: 35px;
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+}
+.block-logos{
+    margin-top: 160px;
+}
