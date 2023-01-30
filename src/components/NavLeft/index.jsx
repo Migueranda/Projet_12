@@ -14,6 +14,8 @@ function NavLeft(){
                     <img src={logoSwimming} alt=" Logo Swimmming" className='logos_nav-left'/>
                     <img src={logoYoga} alt="Logo Yoga" className='logos_nav-left'/>
                 </div>
+
+                <h4 className='copyright'>Copyright, SportSee 2020</h4>
             </nav>
 
         </div>

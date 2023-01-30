@@ -1,0 +1,17 @@
+.container-sessions{
+    background: black;
+    padding: 20px;
+}
+.session-custom-tooltip{
+    background-color: #fff;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    border:none;
+}
+
+.time{
+    padding: 10px;
+    font-weight: bold;
+    border:none;
+}

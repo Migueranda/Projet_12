@@ -1,0 +1,24 @@
+.container-error {
+    text-align: center;
+    margin-top: 260px;
+}
+.container-error > h1 {
+    font-size: 118px;
+    color: #FF0000;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+h3 > span{
+    font-size: 40px;
+     margin-right:10px;
+     font-weight: bold;
+}
+h3{
+    font-size: 25px;
+    font-weight: normal;
+}
+.link-page-principale{
+    color: #FF0000;
+    font-size: 18px;
+
+}

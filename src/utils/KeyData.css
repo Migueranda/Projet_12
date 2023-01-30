@@ -1,0 +1,18 @@
+.container-key-data{
+    display: flex;
+    padding-bottom: 70px;
+    padding-top: 55px;   
+}
+.unit{
+    margin-left: 30px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.name{
+    margin-left: 30px;
+    margin-top: 0px;
+    color: #74798C;
+}
+.container-info{
+    align-items: center;
+}

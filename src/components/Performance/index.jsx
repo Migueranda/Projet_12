@@ -1,9 +1,9 @@
 import React from 'react';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis} from 'recharts';
+import  '../../utils/Performance.css'
 
-
-const width = 500;
-const height = 300;
+const width = 288;
+const height = 263;
 
 function Performance({data}) {
     return (
@@ -15,14 +15,13 @@ function Performance({data}) {
         outerRadius="80%" 
         data={data}
         margin={{
-          top: 20,
+          top: 0,
           right: 5,
           left: 5,
-          bottom: 20,
+          bottom:80,
           }}>
         <PolarGrid radialLines={false} />
-        <PolarAngleAxis dataKey="subject" />
-        {/* <PolarRadiusAxis /> */}
+        <PolarAngleAxis dataKey="subject" stroke="#fff"  tickLine={false} barCategoryGap={10} />        
         <Radar name="woot" dataKey="value" stroke="#ff0000" fill="#ff0000" fillOpacity={0.6} />
       </RadarChart>
     );

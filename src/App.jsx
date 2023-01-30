@@ -1,5 +1,3 @@
-
-// import { Component } from 'react';
 import Header from './components/Header';
 import NavLeft from './components/NavLeft';
 import NavRight from './components/NavRight';
@@ -19,40 +17,50 @@ function App() {
  
   let {data, loading, error} = useFetch();
   
-  
   if (loading) return <h1>Loading...</h1>;
+
   if (error) {
     data = MOCKED_DATA
     console.log("-- error state --");
     console.log(error);
-    }
+  }
   
-  return (
+  
+  return (  
+    
     <div className="container-App">
       <Header />
       <NavLeft />
-      <NavRight />
+      <NavRight data={data.user.keyData} />
+
       <div className='container-graphique'>
 
-        <div>
+        <h2 className='User-name'>Bonjour <span id='user-name-styled'>{data.user.userInfos.firstName}</span></h2>
+        <h3 className='User-name-salutations'>Félicitation ! Vous avez explosé vos objectifs hier 👏</h3>
+        <div className='container-activity'>
           <Activity data={data.activity}/>
         </div>
-       
-        <div className='container-sessions' style={{backgroundColor:'#FF0000', borderRadius:'5px'}}>
-          <Sessions data={data.sessions}/>
+        <div className='cont-graph-sessions-score-performance'>
+          <div className='container-sessions' style={{backgroundColor:'#FF0000', borderRadius:'5px'}}>
+            <Sessions data={data.sessions}/>
+          </div>
+          <div className='container-performance' style={{backgroundColor:'#000000', borderRadius:'5px'}}>
+            <Performance data={data.performance}/>
+          </div>
+          <div className='container-score'>
+            <Score data={data.user}/>
+          </div>
         </div>
-        <div className='container-performance' style={{backgroundColor:'#000000', borderRadius:'5px'}}>
-          <Performance data={data.performance}/>
-        </div>
-        <div className='container-score'>
-          <Score data={data.user}/>
-        </div>      
-        
-      {/* <h2> Bonjour {data.user.userInfos.firstName}</h2> */}
- 
-      </div>
+      </div>  
     </div>
+
+    
+
+   
+   
   );
+
+  
 }
 
 export default App;

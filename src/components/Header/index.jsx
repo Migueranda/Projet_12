@@ -13,7 +13,6 @@ function Header(){
                     <li>Communauté</li>
                 </ul>
             </nav>
-            {/* <h1> Hola</h1> */}
         </div>
     )
 
