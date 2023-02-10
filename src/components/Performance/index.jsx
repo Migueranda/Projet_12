@@ -1,11 +1,18 @@
 import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis} from 'recharts';
-import  '../../utils/Performance.css'
+import  '../../utils/Performance.css';
+import propTypes from 'prop-types';
 
 const width = 288;
 const height = 263;
 
+/**
+*  @function Performance manages the data displayed in RadarChart       
+*               
+* */
+
 function Performance({data}) {
+  
     return (
       <RadarChart 
         width={width} 
@@ -27,4 +34,7 @@ function Performance({data}) {
     );
 }
 
+Performance.propTypes = {
+  data : propTypes.array,    
+}
 export default Performance

@@ -1,9 +1,15 @@
 // https://www.youtube.com/watch?v=Vspeudp-M9k - How to Fetch Data in React With A Custom useFetch Hook
 import { useState, useEffect} from 'react';
 import axios from "axios";
-// import config from './config.js'
 
-function useFetch(){  
+/**
+*  @function useFetch this function manages APIs taking into account their respective endpoints 
+*  using the useEffect and Axios hook (HTTP client).
+*               
+* */
+
+
+function useFetch(userId){  
    
   const [error, setError] = useState(null);
   const [data, setData] = useState(false);
@@ -12,10 +18,10 @@ function useFetch(){
   //start
    
   let endpoints = [
-    "http://localhost:3000/user/18", // id, user information first name, last name and age), the current day's score todayScore) and key data (calorie, macronutrient, etc.).
-    "http://localhost:3000/user/18/activity", // activity day by day with kilograms and calories
-    "http://localhost:3000/user/18/average-sessions",// average sessions of a user per day. The week starts on Monday.
-    "http://localhost:3000/user/18/performance" // user's performance (energy, endurance, etc.). (radard graph)
+    `http://localhost:3000/user/${userId}`, // id, user information first name, last name and age), the current day's score todayScore) and key data (calorie, macronutrient, etc.).
+    `http://localhost:3000/user/${userId}/activity`, // activity day by day with kilograms and calories
+    `http://localhost:3000/user/${userId}/average-sessions`,// average sessions of a user per day. The week starts on Monday.
+    `http://localhost:3000/user/${userId}/performance` // user's performance (energy, endurance, etc.). (radard graph)
   ];
 
   let response = {}
@@ -51,31 +57,10 @@ function useFetch(){
             setError(err);  
     }).finally(() => {
           setLoading(false)
-    });     
+    });
 
-    }, []);
+  }, []);
 
-
-  
-  //end
-
-    // useEffect(() => { 
-      
-    //   setLoading(true);
-        
-    //  axios.get(url)
-    // .then((response) => {
-    //     setData(response.data);
-    //   })
-    //   .catch((err) => {
-    //       setError(err);
-    //   })
-    //   .finally(() => {
-    //     setLoading(false)
-    //   });     
-
-    // }, [url])
-    
     return { data, error, loading }
 }
 export default useFetch

@@ -2,7 +2,7 @@ export const MOCKED_DATA = {
     user: {
         id: 18,
         userInfos: {
-            firstName: "Cecilia",
+            firstName: "Cecilia*",
             lastName: "Ratorez",
             age: 34
         },

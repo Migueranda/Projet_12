@@ -1,10 +1,15 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import  '../../utils/Activity.css'
+import propTypes from 'prop-types';
+import  '../../utils/Activity.css';
 
+/**
+*   @function activity displays data in Barchart (Activité quotidienne)
+* 
+*/
 function Activity({data}){ 
-
-    const CustomTooltip = ({ active, payload, label }) => {
+      
+    let CustomTooltip = ({ active, payload, label }) => {
         
         if (active && payload && payload.length) {
           return (
@@ -30,6 +35,7 @@ function Activity({data}){
                     bottom: 5,
                 }}
             >
+                
             <CartesianGrid vertical={false} strokeDasharray="3" />
             <XAxis dataKey="x" stroke='#74798C'/>
             <YAxis orientation="right"/>
@@ -41,6 +47,9 @@ function Activity({data}){
             </BarChart>
         </div>
     );
-  
 }
+    Activity.propTypes = {
+        data : propTypes.object,    
+    }
+    
 export default Activity

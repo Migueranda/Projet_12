@@ -1,33 +1,44 @@
+import {useNavigate, useParams } from 'react-router-dom';
+import useFetch from "./useFetch";
+import { MOCKED_DATA } from "./datas/mockedData.js";
+import  './utils/App.css';
 import Header from './components/Header';
 import NavLeft from './components/NavLeft';
 import NavRight from './components/NavRight';
-import useFetch from "./useFetch"
-import { MOCKED_DATA } from "./datas/mockedData.js"
-import Activity from "./components/Activity"
-import Score from "./components/Score"
+import Activity from "./components/Activity";
+import Score from "./components/Score";
 import Sessions from './components/Sessions';
 import Performance from './components/Performance';
-import  './utils/App.css'
+
+/**
+*  @function App In this function are called all the components and their data are displayed
+*                Manage page loading
+*                whereas the potential errors which may arise depend on their nature              
+* */
 
 function App() {
-  // const {data, loading, error} = useFetch("http://localhost:3000/user/18"); // id, user information (first name, last name and age), the current day's score (todayScore) and key data (calorie, macronutrient, etc.).
-  // const {data, loading, error} = useFetch("http://localhost:3000/user/18/activity"); // activity day by day with kilograms and calories
-  // const {data, loading, error} = useFetch("http://localhost:3000/user/18//average-sessions"); // average sessions of a user per day. The week starts on Monday.
-  // const {data, loading, error} = useFetch("http://localhost:3000/user/18/performance"); // user's performance (energy, endurance, etc.). (radard graph)
- 
-  let {data, loading, error} = useFetch();
-  
-  if (loading) return <h1>Loading...</h1>;
+  const {userId} = useParams()
+  const navigate = useNavigate()
 
-  if (error) {
-    data = MOCKED_DATA
-    console.log("-- error state --");
-    console.log(error);
-  }
+  let {data, loading, error} = useFetch(userId);
+
+    if (loading) return <h1>Loading...</h1>;
+
+    if (error) {    
+        // l'API ne fonctionne pas, aucune réponse
+      if(error.code === 'ERR_NETWORK'){
+        // dans ce cas, on positionne les données mockées
+        data = MOCKED_DATA
+      }
+        // l'API fonctionne mais ne comprend pas ce qu'on lui envoie. exemple : id qui n'éxiste pas
+      if(error.code === 'ERR_BAD_REQUEST'){
+        // dans ce cas, on redirige vers un 404
+        navigate('/')
+        // navigate('/', { replace: true })
+      }
+    }
   
-  
-  return (  
-    
+  return (    
     <div className="container-App">
       <Header />
       <NavLeft />
@@ -53,14 +64,7 @@ function App() {
         </div>
       </div>  
     </div>
-
-    
-
-   
-   
   );
 
-  
 }
-
 export default App;

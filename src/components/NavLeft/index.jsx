@@ -1,8 +1,13 @@
-import logoCyling from '../../assets/logo_cycling.png'
-import logoFitness from '../../assets/logo_fitness.png'
-import logoSwimming from '../../assets/logo_swimming.png'
-import logoYoga from '../../assets/logo_yoga.png'
-import '../../utils/NavLeft.css'
+import '../../utils/NavLeft.css';
+import logoCyling from '../../assets/logo_cycling.png';
+import logoFitness from '../../assets/logo_fitness.png';
+import logoSwimming from '../../assets/logo_swimming.png';
+import logoYoga from '../../assets/logo_yoga.png';
+
+/**
+*  @function NavLeft manages the left menu content display       
+*               
+* */    
 
 function NavLeft(){
     return(
@@ -21,4 +26,5 @@ function NavLeft(){
         </div>
     )
 }
+
 export default NavLeft

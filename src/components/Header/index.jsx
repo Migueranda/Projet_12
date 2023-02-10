@@ -1,6 +1,10 @@
-import logoSportSee from '../../assets/logo_sportsee.png'
-import '../../utils/Header.css'
+import logoSportSee from '../../assets/logo_sportsee.png';
+import '../../utils/Header.css';
 
+/**
+*@function Header displays the header of the main page 
+*
+*/
 function Header(){
     return(
         <div className='container'>
@@ -15,7 +19,6 @@ function Header(){
             </nav>
         </div>
     )
-
-
 }
+
 export default Header

@@ -1,14 +1,18 @@
 import React from 'react';
 import { LineChart, Line, XAxis, Tooltip } from 'recharts';
-import  '../../utils/Sessions.css'
+import  '../../utils/Sessions.css';
+import propTypes from 'prop-types';
 
 const width = 258;
 const height = 263;
 const title_x = 10
 
+/**
+*  @function Sessions manages the data display in LineChart ( Average duration of sessions )    
+*               
+* */
+
 function Sessions({data}) {
-  console.log("data session")
-  console.log(data)
 
   const CustomTooltip = ({ active, payload, label }) => {
         
@@ -62,4 +66,7 @@ function Sessions({data}) {
     );
 }
 
+Sessions.propTypes = {
+    data : propTypes.array,    
+}
 export default Sessions

@@ -1,11 +1,18 @@
 import React from 'react';
 import { Pie, PieChart, Cell } from "recharts";
+import propTypes from 'prop-types';
+
+/**
+*  @function Score manages the data display in PieChart ( the goal expects from the user in %  )    
+*               
+* */
 
 function Score({data}){  
+
     // construction des valeurs à passer au graphique
     // il faut la partie visible data.score mais aussi la partie invisible 
     // autrement nous aurons toujours de représenté un cercle plein
-    let serie =  [{ value: data.score}, {value: (1 - data.score)}]
+    let serie =  [{ value: data.score}, {value: (1 - data.score)}] // 0,3 / 0,7
 
     const width = 258;
     const height = 263
@@ -34,4 +41,9 @@ function Score({data}){
         </PieChart>
     );
 }
+
+    Score.propTypes = {
+        data : propTypes.object,    
+    }
+    
 export default Score

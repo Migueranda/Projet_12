@@ -1,9 +1,14 @@
-import '../../utils/NavRight.css'
-import KeyData from '../KeyData'
+import '../../utils/NavRight.css';
+import KeyData from '../KeyData';
+import propTypes from 'prop-types';
+
+/**
+*  @function  NavRight displays values : Calories, Proteines, Glucides, Lipides in the right menu content display         
+*               
+* */   
 
 function NavRight({data}){
-    console.log('keyyyyyyyyyyyyysdata')
-    console.log(data)
+
     return(
         <div id="container-nav-right">
             <nav className='nav-right'>
@@ -14,6 +19,9 @@ function NavRight({data}){
             </nav>
         </div>
     )
+}
 
+NavRight.propTypes = {
+    data : propTypes.object,    
 }
 export default NavRight
