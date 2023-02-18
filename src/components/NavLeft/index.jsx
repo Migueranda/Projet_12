@@ -6,7 +6,7 @@ import logoYoga from '../../assets/logo_yoga.png';
 
 /**
 *  @function NavLeft manages the left menu content display       
-*               
+*  @return {JSX.Element}            
 * */    
 
 function NavLeft(){
@@ -19,10 +19,8 @@ function NavLeft(){
                     <img src={logoSwimming} alt=" Logo Swimmming" className='logos_nav-left'/>
                     <img src={logoYoga} alt="Logo Yoga" className='logos_nav-left'/>
                 </div>
-
                 <h4 className='copyright'>Copyright, SportSee 2020</h4>
             </nav>
-
         </div>
     )
 }

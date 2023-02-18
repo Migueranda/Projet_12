@@ -13,13 +13,15 @@ const icons = [ {name: 'Calories', icon: CalorieIcon, unit: 'Kcal'},
               ]  
 
 /**
-*  @function  KeyData manages the right menu content display also displays values names and corresponding icons      
-*               
+*  @function KeyData manages the right menu content display also displays values names and corresponding icons  
+*  @param  {string} name   
+*  @param  {number} value  
+*  @returns {JSX.Element}
 * */                
         
 function KeyData({name, value}){
 
-    // en fonction de la Props name, nous filtrons pour obtenir le type d'icone à afficher et l'unité à afficher
+    // depending on the Props name, we filter to obtain the type of icon to display and the unit to display
     let icon = icons.filter(function(icon){
         return icon.name === name;
     })
@@ -33,6 +35,7 @@ function KeyData({name, value}){
             </div>
         </div>
     )
+    
 }
 
 KeyData.propTypes = {

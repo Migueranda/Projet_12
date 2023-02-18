@@ -3,7 +3,7 @@ import { Link} from 'react-router-dom';
 
 /**
 *  @function Error a message is displayed in the error page in case problems occur in main page ( network error, bad request ...)
-*               
+*  @return {JSX.Element}            
 * */
 
 function Error(){

@@ -6,8 +6,7 @@
 - yarn or npm
 
 ### Launching the project
-
-- npx create-react-app analytics
-- cd analytics 
+- clone it on your computer
+- cd projet_12 
 - npm or yarn start
  

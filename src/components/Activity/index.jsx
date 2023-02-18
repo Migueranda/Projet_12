@@ -5,7 +5,9 @@ import  '../../utils/Activity.css';
 
 /**
 *   @function activity displays data in Barchart (Activité quotidienne)
-* 
+*   @param {object} data
+*   @return {JSX.Element}
+*    
 */
 function Activity({data}){ 
       
@@ -34,16 +36,15 @@ function Activity({data}){
                     left: 10,
                     bottom: 5,
                 }}
-            >
-                
-            <CartesianGrid vertical={false} strokeDasharray="3" />
-            <XAxis dataKey="x" stroke='#74798C'/>
-            <YAxis orientation="right"/>
-            <Tooltip content={<CustomTooltip />} wrapperStyle={{ outline: 'none'}}/>            
-            <text x={10} y={36} fill="black" style={{fontWeight: 'bold'}}>{data.title}</text>
-            <Legend align="right" verticalAlign="top" height={36} iconType="circle" />
-            <Bar name={data.legend.kilogram} dataKey="kilogram" fill="red" radius={[5, 5, 0, 0]} barSize={8}/>
-            <Bar name={data.legend.calories} dataKey="calories" fill="black" radius={[5, 5, 0, 0]} barSize={8}/>
+            >    
+                <CartesianGrid vertical={false} strokeDasharray="3" />
+                <XAxis dataKey="x" stroke='#74798C'/>
+                <YAxis orientation="right"/>
+                <Tooltip content={<CustomTooltip />} wrapperStyle={{ outline: 'none'}}/>            
+                <text x={10} y={36} fill="black" style={{fontWeight: 'bold'}}>{data.title}</text>
+                <Legend align="right" verticalAlign="top" height={36} iconType="circle" />
+                <Bar name={data.legend.kilogram} dataKey="kilogram" fill="red" radius={[5, 5, 0, 0]} barSize={8}/>
+                <Bar name={data.legend.calories} dataKey="calories" fill="black" radius={[5, 5, 0, 0]} barSize={8}/>
             </BarChart>
         </div>
     );
@@ -51,5 +52,6 @@ function Activity({data}){
     Activity.propTypes = {
         data : propTypes.object,    
     }
+    
     
 export default Activity

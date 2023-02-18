@@ -8,7 +8,8 @@ const height = 263;
 
 /**
 *  @function Performance manages the data displayed in RadarChart       
-*               
+*  @param  {array} data
+*  @return {JSX.Element}          
 * */
 
 function Performance({data}) {

@@ -8,8 +8,9 @@ const height = 263;
 const title_x = 10
 
 /**
-*  @function Sessions manages the data display in LineChart ( Average duration of sessions )    
-*               
+*  @function Sessions manages the data display in LineChart ( Average duration of sessions )  
+*  @param {array} data
+*  @return {JSX.Element}             
 * */
 
 function Sessions({data}) {

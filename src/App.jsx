@@ -9,35 +9,43 @@ import Activity from "./components/Activity";
 import Score from "./components/Score";
 import Sessions from './components/Sessions';
 import Performance from './components/Performance';
+import { config } from './config'
 
 /**
 *  @function App In this function are called all the components and their data are displayed
 *                Manage page loading
-*                whereas the potential errors which may arise depend on their nature              
+*                whereas the potential errors which may arise depend on their nature    
+*   @return {JSX.Element}          
 * */
 
 function App() {
-  const {userId} = useParams()
+  const {userId} = useParams()// gets the user id set in the url(ref. configuration of the router in index.js)
   const navigate = useNavigate()
 
   let {data, loading, error} = useFetch(userId);
 
-    if (loading) return <h1>Loading...</h1>;
-
-    if (error) {    
-        // l'API ne fonctionne pas, aucune réponse
-      if(error.code === 'ERR_NETWORK'){
-        // dans ce cas, on positionne les données mockées
-        data = MOCKED_DATA
-      }
-        // l'API fonctionne mais ne comprend pas ce qu'on lui envoie. exemple : id qui n'éxiste pas
-      if(error.code === 'ERR_BAD_REQUEST'){
-        // dans ce cas, on redirige vers un 404
-        navigate('/')
-        // navigate('/', { replace: true })
-      }
+    // config.API_OK is a switch to use directly mocked data or to consume API
+    if(config.API_OK === false) {
+      console.log("switch off API")
+      data = MOCKED_DATA
+    // Use of API
+    }else{
+      console.log("switch on API")
+      if (loading) return <h1>Loading...</h1>;
+      if (error) {    
+        // API not working, no response
+        if(error.code === 'ERR_NETWORK'){
+          // in this case, we position the mocked data
+          data = MOCKED_DATA
+        }
+        // the API works but does not understand what is being sent to it. example: id that does not exist
+        if(error.code === 'ERR_BAD_REQUEST'){
+          // in this case, we redirect to a 404
+          navigate('/')
+        }
+      }   
     }
-  
+
   return (    
     <div className="container-App">
       <Header />

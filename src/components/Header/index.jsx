@@ -2,8 +2,8 @@ import logoSportSee from '../../assets/logo_sportsee.png';
 import '../../utils/Header.css';
 
 /**
-*@function Header displays the header of the main page 
-*
+*  @function Header displays the header of the main page 
+*  @return {JSX.Element}
 */
 function Header(){
     return(

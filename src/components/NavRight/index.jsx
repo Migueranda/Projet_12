@@ -3,8 +3,9 @@ import KeyData from '../KeyData';
 import propTypes from 'prop-types';
 
 /**
-*  @function  NavRight displays values : Calories, Proteines, Glucides, Lipides in the right menu content display         
-*               
+*  @function  NavRight displays values : Calories, Proteines, Glucides, Lipides in the right menu content display    
+*  @param    {object} data 
+*  @return   {JSX.Element}            
 * */   
 
 function NavRight({data}){

@@ -4,14 +4,15 @@ import propTypes from 'prop-types';
 
 /**
 *  @function Score manages the data display in PieChart ( the goal expects from the user in %  )    
-*               
+*  @param {object} data
+*  @return {JSX.Element}         
 * */
 
 function Score({data}){  
 
-    // construction des valeurs à passer au graphique
-    // il faut la partie visible data.score mais aussi la partie invisible 
-    // autrement nous aurons toujours de représenté un cercle plein
+    // construction of the values to be passed to the graph
+    // you need the visible data.score part but also the invisible part 
+    // otherwise we will always have represented a full circle
     let serie =  [{ value: data.score}, {value: (1 - data.score)}] // 0,3 / 0,7
 
     const width = 258;
